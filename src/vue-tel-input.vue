@@ -18,8 +18,9 @@
           </b-dropdown-item>
         </b-dropdown>
         <b-form-input v-model="phone"
-                      placeholder="Enter your phone number"
+                      :placeholder="placeholder"
                       :state="state"
+                      :name="name"
                       :formatter="format"
                       @input="onInput">
         </b-form-input>
@@ -34,6 +35,10 @@ import allCountries from './assets/all-countries';
 import getCountry from './assets/default-country';
 
 export default {
+  props:{
+    placeholder: 'Hi',
+    name: 'name'
+  },
   name: 'vue-tel-input',
   mounted() {
     getCountry().then((res) => {
